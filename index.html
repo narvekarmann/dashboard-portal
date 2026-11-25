@@ -262,6 +262,70 @@ function login() {
 }
 
 </script>
+<script type="module">
 
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+ getAuth,
+ signInWithEmailAndPassword
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+const firebaseConfig = {
+
+ apiKey: "YOUR_API_KEY",
+
+ authDomain: "YOUR_PROJECT.firebaseapp.com",
+
+ projectId: "YOUR_PROJECT_ID",
+
+ storageBucket: "YOUR_PROJECT.appspot.com",
+
+ messagingSenderId: "XXXXXX",
+
+ appId: "XXXXXX"
+
+};
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+window.login = function(){
+
+ const email =
+ document.getElementById('username').value;
+
+ const password =
+ document.getElementById('password').value;
+
+ signInWithEmailAndPassword(
+     auth,
+     email,
+     password
+ )
+
+ .then(() => {
+
+     document.getElementById('loginSection')
+         .style.display='none';
+
+     document.getElementById('dashboardSection')
+         .style.display='block';
+
+ })
+
+ .catch(() => {
+
+      document.getElementById('error')
+          .innerHTML='Invalid Credentials';
+
+ });
+
+}
+
+</script>
 </body>
 </html>
