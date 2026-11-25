@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard Portal</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f4f6f9;
+            padding:40px;
+        }
+
+        .card{
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            margin-bottom:15px;
+            box-shadow:0 0 5px rgba(0,0,0,0.15);
+        }
+
+        a{
+            text-decoration:none;
+            color:#0078D4;
+            font-weight:bold;
+        }
+
+        button{
+            padding:10px 15px;
+            border:none;
+            background:red;
+            color:white;
+            cursor:pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Available Dashboards</h2>
+
+<div class="card">
+    <a href="https://revupside-my.sharepoint.com/:u:/p/mangesh_n/IQCqtPl9pPDSS7mk1bfqwGQWAeGKlKlezvjgTQ9ieHTiX_E?e=aUMn6z" target="_blank">
+        KaprosPT
+    </a>
+</div>
+
+<div class="card">
+    <a href="YOUR_POWERBI_LINK_2" target="_blank">
+        CBSI Dashboard
+    </a>
+</div>
+
+<div class="card">
+    <a href="YOUR_POWERBI_LINK_3" target="_blank">
+        Target Dashboard
+    </a>
+</div>
+
+<br>
+
+<button onclick="logout()">Logout</button>
+
+<script>
+
+if(!localStorage.getItem("loggedInUser")){
+    window.location.href="index.html";
+}
+
+function logout(){
+    localStorage.removeItem("loggedInUser");
+    window.location.href="index.html";
+}
+
+</script>
+
+</body>
+</html>
