@@ -174,7 +174,7 @@ button:hover{
                 <input
                     type="text"
                     id="username"
-                    placeholder="Enter Username">
+                    placeholder="Enter Email">
 
                 <input
                     type="password"
@@ -228,40 +228,6 @@ button:hover{
 
 </div>
 
-<script>
-
-function login() {
-
-    const username =
-        document.getElementById("username").value.trim();
-
-    const password =
-        document.getElementById("password").value;
-
-    const users = {
-
-        "admin":"Admin@123",
-        "manager":"Manager@123"
-
-    };
-
-    if(users[username] &&
-       users[username] === password){
-
-        document.getElementById("loginSection").style.display = "none";
-
-        document.getElementById("dashboardSection").style.display = "block";
-
-    }
-    else{
-
-        document.getElementById("error").innerHTML =
-        "❌ Invalid Username or Password";
-
-    }
-}
-
-</script>
 <script type="module">
 
 import { initializeApp }
@@ -317,12 +283,14 @@ window.login = function(){
 
  })
 
- .catch(() => {
+ .catch((error) => {
 
-      document.getElementById('error')
-          .innerHTML='Invalid Credentials';
+ console.log(error);
 
- });
+ document.getElementById('error').innerHTML =
+ error.code + " : " + error.message;
+
+});
 
 }
 
